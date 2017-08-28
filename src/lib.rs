@@ -6,6 +6,9 @@ use std::ops::{
     BitAnd,
 };
 
+/// The trait describing things which can have
+/// bit masks applied to them. All integer types
+/// (and `bool`) implement this trait.
 pub trait BitMaskable
     where Self: Copy +
              BitOrAssign +
@@ -15,12 +18,16 @@ pub trait BitMaskable
              BitAnd<Self, Output = Self> +
              Eq,
 {
+    /// Applies a bit mask.
     fn mask(&mut self, mask: Self);
     
+    /// Flips the value of a bit mask.
     fn flip(&mut self, mask: Self);
     
+    /// Removes a bit mask.
     fn unmask(&mut self, mask: Self);
     
+    /// Checks whether a certain mask is currently applied.
     fn masked(self, mask: Self) -> bool;
 }
 
@@ -69,6 +76,7 @@ mod tests {
         m.unmask(128);
         
         assert!(!m.masked(128));
+
     }
     
     #[test]
