@@ -1,3 +1,6 @@
+//! All this crate does is make bit masking
+//! operations a bit prettier.
+
 use std::ops::{
     BitOrAssign,
     BitXorAssign,
