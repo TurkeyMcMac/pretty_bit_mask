@@ -1,5 +1,3 @@
-#![feature(i128_type)]
-
 #[cfg(test)]
 mod tests {
     use super::*;
