@@ -6,17 +6,25 @@ use std::ops::{
     BitAnd,
 };
 
-pub trait BitMaskable<B: Copy> {
-    fn mask(&mut self, mask: B);
+pub trait BitMaskable
+    where Self: Copy +
+             BitOrAssign +
+             BitXorAssign +
+             BitAndAssign +
+             Not<Output = Self> +
+             BitAnd<Self, Output = Self> +
+             Eq,
+{
+    fn mask(&mut self, mask: Self);
     
-    fn flip(&mut self, mask: B);
+    fn flip(&mut self, mask: Self);
     
-    fn unmask(&mut self, mask: B);
+    fn unmask(&mut self, mask: Self);
     
-    fn masked(self, mask: B) -> bool;
+    fn masked(self, mask: Self) -> bool;
 }
 
-impl <B> BitMaskable<B> for B
+impl <B> BitMaskable for B
     where B: Copy +
              BitOrAssign +
              BitXorAssign +
