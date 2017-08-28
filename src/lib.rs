@@ -51,15 +51,45 @@ mod tests {
     use super::*;
     
     #[test]
-    fn it_works() {
+    fn mask_works() {
+        let mut m: u32 = 0;
+        
+        m.mask(128);
+        
+        assert!(m.masked(128));
+        
+        m.unmask(128);
+        
+        assert!(!m.masked(128));
+    }
+    
+    #[test]
+    fn flip_works() {
         let mut m: u32 = 0;
         
         m.flip(128);
-        m.mask(1|4|8|64);
-        m.flip(128);
-        m.unmask(8);
         
-        assert!(m.masked(4|64));
-        assert!(!m.masked(8|128));
+        assert!(m.masked(128));
+        
+        m.flip(128);
+        
+        assert!(!m.masked(128));
+    }
+    
+    #[test]
+    fn multi_masks_work() {
+        let mut m: u32 = 0;
+        
+        m.mask(1|2|4);
+        
+        assert!(m.masked(1|2|4));
+        
+        assert!(m.masked(2|4));
+        
+        assert!(!m.masked(1|2|4|8));
+        
+        m.unmask(2|4|8);
+        
+        assert!(m.masked(1));
     }
 }
