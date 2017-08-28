@@ -2,5 +2,9 @@
 name = "pretty_bit_mask"
 version = "0.1.0"
 authors = ["TurkeyMcMac <jwmhjwmh@gmail.com>"]
+description = "All this does is make bit masking operations a bit prettier."
+repository = "https://github.com/TurkeyMcMac/pretty_bit_mask"
+keywords = ["bits", "bit mask"]
+license = "MIT"
 
 [dependencies]
