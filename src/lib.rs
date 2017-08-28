@@ -43,18 +43,22 @@ impl <B> BitMaskable<B> for B
              BitAnd<B, Output = B> +
              Eq,
 {
+    #[inline(always)]
     fn mask(&mut self, mask: B) {
         *self |= mask;
     }
     
+    #[inline(always)]
     fn flip(&mut self, mask: B) {
         *self ^= mask;
     }
     
+    #[inline(always)]
     fn unmask(&mut self, mask: B) {
         *self &= !mask;
     }
     
+    #[inline(always)]
     fn masked(self, mask: B) -> bool {
         self & mask == mask
     }
