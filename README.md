@@ -20,3 +20,6 @@ n ^= m;    // flip mask m normally
 n.flip(m); // flip mask m prettily
 ```
 Typing out the pretty version takes a tad longer, but it can help make one's code clearer.
+
+## How to Obtain
+This program is available on crates.io [here](https://crates.io/crates/pretty_bit_mask). Just copy the large monospace text into the `Cargo.toml` file of your project.
