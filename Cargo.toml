@@ -1,0 +1,6 @@
+[package]
+name = "pretty_bit_mask"
+version = "0.1.0"
+authors = ["TurkeyMcMac <jwmhjwmh@gmail.com>"]
+
+[dependencies]
